@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shir Tahelle Mor - Creative Director</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0a0e;--plum:#5a1146;--pink:#f6b9ef;--pink-edge:#ff6ad5;
+  --lavender:#efdcfb;--lime:#e6f879;--paper:#f6f3ee;--muted:#6b6470;
+  --line:rgba(20,12,24,.12);--glass-tint:rgba(120,18,80,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo','Heebo',-apple-system,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.45}
+
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(130% 120% at 0% 0%,   #f4c2f0 0%, rgba(244,194,240,0) 46%),
+    radial-gradient(120% 130% at 100% 100%,#e4f77c 0%, rgba(228,247,124,0) 52%),
+    radial-gradient(90% 90% at 92% 4%,     #ffffff 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(135deg,#f7e9fb 0%, #f5f6ee 60%, #f1f4e6 100%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;
+  backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);background:rgba(246,243,238,.55);border-bottom:1px solid var(--line)}
+nav .brand{font-weight:800;letter-spacing:-.02em;font-size:1rem}
+nav .brand span{color:var(--plum)}
+nav .links{display:flex;gap:26px}
+nav .links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.84rem;letter-spacing:.02em;text-transform:uppercase;opacity:.72;transition:opacity .25s}
+nav .links a:hover{opacity:1}
+@media(max-width:720px){nav .links{display:none}}
+
+.hero{position:relative;min-height:94vh;min-height:94svh;display:flex;align-items:center;padding:90px 28px 34px;overflow:hidden}
+.hero-inner{max-width:1240px;margin:0 auto;width:100%;position:relative}
+.mark{font-weight:900;letter-spacing:-.045em;line-height:.82;font-size:clamp(4.2rem,18vw,17rem);text-transform:uppercase;position:relative;z-index:1}
+.mark span{display:block}
+.glass{position:absolute;z-index:2;top:-14%;left:-6%;width:62%;height:150%;transform:rotate(-19deg);transform-origin:top left;border-radius:0 0 110px 0;
+  background:linear-gradient(120deg, rgba(255,255,255,.18), rgba(255,255,255,.02) 38%),linear-gradient(120deg, var(--pink) 0%, rgba(246,185,239,.22) 55%, var(--glass-tint) 100%);
+  -webkit-backdrop-filter:blur(8px) saturate(1.5);backdrop-filter:blur(8px) saturate(1.5);
+  border-right:2.5px solid var(--pink-edge);box-shadow:18px 0 60px -20px rgba(255,90,205,.55),inset 0 1px 0 rgba(255,255,255,.5);pointer-events:none;opacity:.92}
+@media(max-width:720px){.glass{width:78%;height:128%;top:-8%;border-radius:0 0 60px 0}}
+.hero-meta{position:absolute;z-index:5;top:4%;right:0;max-width:360px;text-align:left}
+.hero-meta .role{font-weight:800;font-size:clamp(1.3rem,2.5vw,1.9rem);letter-spacing:-.02em;margin-bottom:14px}
+.hero-meta .tag{font-size:1.02rem;color:#2a2230;font-weight:500;line-height:1.5}
+.hero-cta{position:absolute;z-index:5;bottom:2%;right:0;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;letter-spacing:.01em;transition:transform .25s ease, box-shadow .25s ease, background .25s}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(12,10,14,.6)}
+.btn--ghost{background:rgba(255,255,255,.5);color:var(--ink);border:1.5px solid var(--ink);backdrop-filter:blur(6px)}
+.btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+@media(max-width:900px){.hero{min-height:auto;padding:104px 28px 30px;align-items:flex-start}.hero-meta{position:relative;top:auto;right:auto;max-width:none;margin-bottom:26px}.hero-cta{position:relative;bottom:auto;right:auto;margin-top:28px}}
+.mark .span-anim{opacity:0;transform:translateY(40px);animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+.mark .l1{animation-delay:.05s}.mark .l2{animation-delay:.16s}.mark .l3{animation-delay:.27s}
+@keyframes rise{to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+.section{padding:42px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-weight:900;letter-spacing:-.035em;line-height:.92;font-size:clamp(2.4rem,6vw,5rem);text-transform:uppercase}
+.sec-head h2 em{font-style:normal;color:var(--plum)}
+.sec-head p{max-width:440px;color:var(--muted);font-weight:500;font-size:1.02rem}
+
+/* PROJECTS - media beside text on desktop, media below text on mobile */
+.project{display:grid;grid-template-columns:1.12fr .88fr;gap:46px;align-items:center;padding:40px 0;border-top:1px solid var(--line)}
+.project:nth-of-type(even) .p-media{order:2}
+.project:nth-of-type(even) .p-text{order:1}
+@media(max-width:900px){
+  .project{grid-template-columns:1fr;gap:22px;padding:40px 0}
+  .project .p-text{order:1!important}
+  .project .p-media{order:2!important}
+}
+.p-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.p-num{font-weight:900;font-size:.95rem;color:var(--plum);letter-spacing:.05em}
+.p-type{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:var(--ink);color:#fff}
+.p-lang{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:100px;border:1.5px solid var(--ink)}
+.p-title{font-weight:900;letter-spacing:-.03em;line-height:.98;font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:16px}
+.p-client{font-weight:700;color:var(--plum);font-size:.95rem;margin-bottom:6px;letter-spacing:.01em}
+.p-desc{color:#241d2a;font-size:1.05rem;font-weight:500;line-height:1.55;max-width:48ch}
+.p-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.metric{background:rgba(255,255,255,.55);border:1px solid var(--line);backdrop-filter:blur(8px);border-radius:14px;padding:12px 16px}
+.metric b{display:block;font-weight:900;font-size:1.45rem;letter-spacing:-.02em;line-height:1}
+.metric span{font-size:.8rem;color:var(--muted);font-weight:600}
+
+/* PREVIEW (click to open lightbox) */
+.preview{display:block;width:100%;border:0;padding:0;cursor:pointer;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#171019;
+  box-shadow:0 26px 60px -30px rgba(60,10,50,.55), inset 0 0 0 1px rgba(255,255,255,.5);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.preview:hover{transform:translateY(-4px)}
+.preview .pv-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.preview:hover .pv-img{transform:scale(1.06)}
+.preview .pv-cover{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 26px;background:var(--cv,linear-gradient(135deg,#1a0d18,#3a0b1f))}
+.preview .pv-cover b{font-weight:900;font-size:clamp(1.3rem,2.6vw,2rem);color:#fff;letter-spacing:-.02em;opacity:.92}
+.preview::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,6,12,0) 52%,rgba(10,6,12,.5) 100%)}
+.pv-edge{position:absolute;inset:0;z-index:3;border-radius:22px;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,106,213,.35)}
+.pv-badge{position:absolute;left:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:9px;
+  padding:9px 15px 9px 9px;border-radius:100px;background:rgba(10,6,12,.5);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase}
+.pv-badge .dot{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--pink-edge);color:#160a14;flex:0 0 auto}
+.preview:hover .pv-badge{background:var(--pink-edge);color:#160a14}
+.preview:hover .pv-badge .dot{background:#160a14;color:var(--pink-edge)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:22px}
+.lightbox.open{display:flex}
+.lb-backdrop{position:absolute;inset:0;background:rgba(12,6,14,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-dialog{position:relative;z-index:1;width:min(940px,100%);max-height:88vh;overflow:auto;background:#140b12;border:1px solid rgba(255,106,213,.32);border-radius:24px;padding:16px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);animation:pop .4s cubic-bezier(.16,1,.3,1)}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.lb-close{position:fixed;top:20px;right:22px;z-index:3;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(0,0,0,.4);backdrop-filter:blur(6px);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .25s}
+.lb-close:hover{background:var(--pink-edge);color:#160a14;border-color:transparent}
+.lb-gallery{display:flex;flex-direction:column;gap:12px}
+.lb-gallery img{width:100%;border-radius:14px;display:block}
+.lb-video{position:relative;aspect-ratio:16/9;max-height:78vh;border-radius:14px;overflow:hidden;background:#000}
+.lb-video iframe,.lb-video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lb-pending{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;text-align:center;background:linear-gradient(135deg,#1a0d18,#3a0b1f)}
+.lb-pending .play{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,106,213,.7);box-shadow:0 0 40px -8px rgba(255,106,213,.6)}
+.lb-pending small{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;font-weight:700}
+.lb-audio{padding:24px;border-radius:14px;background:linear-gradient(135deg,#1a0d18,#330d28);color:#fff}
+.lb-audio-head b{display:block;font-weight:800;font-size:1.1rem}
+.lb-audio-head span{font-size:.82rem;opacity:.65;font-weight:600}
+.wave{display:flex;align-items:flex-end;gap:3px;height:60px;margin:18px 0}
+.wave i{flex:1;background:linear-gradient(180deg,var(--pink-edge),rgba(255,106,213,.25));border-radius:3px;opacity:.6}
+.lb-audio audio{width:100%;margin-top:6px}
+.lb-drive-audio{width:100%;height:62px;border:0;border-radius:10px;background:#000;display:block;margin-top:4px}
+.lb-note{font-size:.85rem;opacity:.7;font-weight:600;margin-top:4px}
+.lb-single img{width:100%;border-radius:14px;display:block}
+
+/* podcasts */
+.pods{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+@media(max-width:760px){.pods{grid-template-columns:1fr}}
+.pod{padding:16px;border-radius:20px;background:rgba(255,255,255,.5);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.pod h3{font-size:1rem;font-weight:800;letter-spacing:-.01em;margin-bottom:12px;line-height:1.3}
+.pod iframe{border-radius:12px;display:block}
+
+/* contact */
+.contact{position:relative;overflow:hidden;margin:18px 0 0;border-radius:34px;padding:clamp(48px,8vw,96px) clamp(28px,6vw,80px);background:linear-gradient(135deg,#160a14 0%, #2c0c24 55%, #3a0b1f 100%);color:#fff}
+.contact::before{content:"";position:absolute;right:-10%;top:-30%;width:60%;height:160%;
+  background:radial-gradient(circle at 30% 40%, rgba(255,106,213,.5), rgba(255,106,213,0) 60%),radial-gradient(circle at 70% 70%, rgba(230,248,121,.4), rgba(230,248,121,0) 55%);transform:rotate(-18deg);filter:blur(8px);pointer-events:none}
+.contact h2{position:relative;z-index:1;font-weight:900;letter-spacing:-.04em;line-height:.92;font-size:clamp(2.4rem,7vw,5.6rem);text-transform:uppercase;margin-bottom:38px}
+.contact h2 em{font-style:normal;color:var(--pink)}
+.contact .conns{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap}
+.contact .conns a{text-decoration:none;color:#160a14;background:#fff;font-weight:700;padding:14px 24px;border-radius:100px;font-size:.95rem;transition:transform .25s, background .25s,color .25s}
+.contact .conns a:hover{transform:translateY(-3px);background:var(--lime)}
+.footer-info{position:relative;z-index:1;margin-top:54px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.86rem;color:rgba(255,255,255,.66);font-weight:500}
+.footer-info b{color:#fff;font-weight:700}
+footer.legal{padding:30px 28px 50px;text-align:center;color:var(--muted);font-size:.8rem;font-weight:500}
+@media(max-width:600px){
+  .lightbox{padding:12px}
+  .lb-dialog{padding:10px;border-radius:18px}
+  .lb-close{top:12px;right:14px;width:42px;height:42px;font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Shir Tahelle Mor <span>· Creative Director</span></div>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#podcasts">Podcasts</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.shirtahellemor.com/_files/ugd/4cf66f_9fe3bfda6b1f4d898e2b188b6ddf3a4e.pdf" target="_blank" rel="noopener">CV</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="mark">
+      <span class="l1 span-anim">Shir</span>
+      <span class="l2 span-anim">Tahelle</span>
+      <span class="l3 span-anim">Mor</span>
+    </h1>
+    <div class="glass" aria-hidden="true"></div>
+    <div class="hero-meta">
+      <div class="role">Creative Director</div>
+      <p class="tag">Advertising roots, SaaS fluency.<br>I translate complex ideas into campaigns people actually feel - in English and Hebrew.</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn--dark" href="https://www.shirtahellemor.com/_files/ugd/4cf66f_9fe3bfda6b1f4d898e2b188b6ddf3a4e.pdf" target="_blank" rel="noopener">CV - English ↗</a>
+      <a class="btn btn--ghost" href="https://www.shirtahellemor.com/_files/ugd/4cf66f_531ef78cf22a40f9b271460713759097.pdf" target="_blank" rel="noopener">קורות חיים ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ WORK ============ -->
+<section class="section" id="work" style="padding-bottom:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>My <em>Work</em></h2>
+      <p>Selected campaigns across OOH, video, audio and print - built to be felt, not just seen.</p>
+    </div>
+
+    <!-- 01 monday OOH -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m01" aria-label="Open monday.com OOH gallery">
+          <img class="pv-img" src="https://static.wixstatic.com/media/4cf66f_a1a68f2428774061b769d828c752ecb3~mv2.jpg/v1/fill/w_700,h_525,al_c,q_90,enc_avif,quality_auto/4cf66f_a1a68f2428774061b769d828c752ecb3~mv2.jpg" alt="monday.com OOH preview">
+          <span class="pv-badge"><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5"/></svg></span>View gallery</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">01</span><span class="p-type">OOH</span><span class="p-lang">ENG</span></div>
+        <div class="p-client">monday.com</div>
+        <h2 class="p-title">For Whatever You Run</h2>
+        <p class="p-desc">A 360 campaign showing that with monday.com you can run just about anything - even the craziest operations - with seamless collaboration, flexibility and perfect visibility. I was part of the team that wrote the script, the OOH and audio ads, and managed the creative process. I also created and managed the localized Australian and UK versions.</p>
+      </div>
+    </article>
+
+    <!-- 02 Beef video -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m02" aria-label="Play Beef video">
+          <span class="pv-cover" style="--cv:linear-gradient(135deg,#2a0c22,#5a1146)"><b>Beef × OurRitual</b></span>
+          <img class="pv-img" src="https://drive.google.com/thumbnail?id=1oyQl0UzRaexR1zhChCc5MaSzTMV2H1tD&sz=w1000" alt="Beef video still" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+          <span class="pv-badge"><span class="dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Play video</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">02</span><span class="p-type">Video</span><span class="p-lang">ENG</span></div>
+        <div class="p-client">Netflix × OurRitual - "Beef"</div>
+        <h2 class="p-title">Beef, but make it couples therapy</h2>
+        <p class="p-desc">In partnership with Netflix, I conceptualized, directed, filmed and edited a video series for OurRitual - relationship experts reacting to scenes from Beef Season 2, turning the show's tension into a conversation about real couple dynamics.</p>
+        <div class="p-metrics">
+          <div class="metric"><b>10.64%</b><span>Click-through rate</span></div>
+          <div class="metric"><b>11,800+</b><span>Landing-page views</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 monday TV video -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m03" aria-label="Play monday.com TV ad">
+          <span class="pv-cover" style="--cv:linear-gradient(135deg,#1c0c1a,#3a1330)"><b>For Whatever You Run</b></span>
+          <img class="pv-img" src="https://drive.google.com/thumbnail?id=1HCRykDue7NB2Ro3XMScl2mtceBfANrJN&sz=w1000" alt="monday.com TV ad still" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+          <span class="pv-badge"><span class="dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Play video</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">03</span><span class="p-type">Video</span><span class="p-lang">ENG</span></div>
+        <div class="p-client">monday.com</div>
+        <h2 class="p-title">For Whatever You Run - TV</h2>
+        <p class="p-desc">The TV chapter of the same 360 campaign. I was part of the team that wrote the script, the OOH and audio ads, and managed the creative process from concept to delivery.</p>
+      </div>
+    </article>
+
+    <!-- 04 Affirmations audio -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m04" aria-label="Listen to Affirmations audio ad">
+          <span class="pv-cover" style="--cv:linear-gradient(135deg,#1a0d18,#330d28)"><b>Affirmations<br>Audio Ad</b></span>
+          <span class="pv-badge"><span class="dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Listen</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">04</span><span class="p-type">Audio</span><span class="p-lang">ENG</span></div>
+        <div class="p-client">monday.com</div>
+        <h2 class="p-title">Affirmations</h2>
+        <p class="p-desc">The most successful audio campaign in monday.com history. It gently reframes the beliefs people hold about work - that collaborating must be hard, that working has to be stressful - in a clever, simple way that meets the listener's state of mind.</p>
+        <div class="p-metrics">
+          <div class="metric"><b>+50%</b><span>Paying clients</span></div>
+          <div class="metric"><b>+150%</b><span>Website traffic vs. prev. quarter</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 Tel Aviv University OOH -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m05" aria-label="Open Tel Aviv University OOH gallery">
+          <img class="pv-img" src="https://static.wixstatic.com/media/4cf66f_2593e59c34ae412fb3945003bf9c489f~mv2.jpg/v1/fill/w_700,h_525,al_c,q_90,enc_avif,quality_auto/4cf66f_2593e59c34ae412fb3945003bf9c489f~mv2.jpg" alt="Tel Aviv University OOH preview">
+          <span class="pv-badge"><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5"/></svg></span>View gallery</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">05</span><span class="p-type">OOH</span><span class="p-lang">HEB</span></div>
+        <div class="p-client">Tel Aviv University</div>
+        <h2 class="p-title">The Why-Not Generation</h2>
+        <p class="p-desc">A 360 campaign built on the concept "The Why-Not Generation" - a pun on "the Y generation" - made to provoke deep questions among the target audience: curious young people who aim to break the molds of the world.</p>
+      </div>
+    </article>
+
+    <!-- 06 Hebrew University print -->
+    <article class="project reveal">
+      <div class="p-media">
+        <button class="preview" data-modal="m06" aria-label="Open Hebrew University print campaign">
+          <img class="pv-img" src="https://static.wixstatic.com/media/4cf66f_c97a07d4dfb04bfba4d98cb777582f5e~mv2.png/v1/crop/x_0,y_37,w_756,h_535/fill/w_700,h_525,al_c,q_90,enc_avif,quality_auto/Screenshot%202025-05-21%20at%2011_57_13.png" alt="Hebrew University print preview">
+          <span class="pv-badge"><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5"/></svg></span>View</span>
+          <span class="pv-edge"></span>
+        </button>
+      </div>
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="p-num">06</span><span class="p-type">Print</span><span class="p-lang">HEB</span></div>
+        <div class="p-client">Hebrew University of Jerusalem</div>
+        <h2 class="p-title">Hardest, but best</h2>
+        <p class="p-desc">A print campaign for the Hebrew University of Jerusalem, built on the concept "hardest, but best" - owning the difficulty as the proof of the value.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PODCASTS ============ -->
+<section class="section" id="podcasts">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>The work, <em>and</em> how I think</h2>
+      <p>This portfolio shows the work. These podcasts show how I think - two creative shows I was interviewed on, about approach, values and creative thinking.</p>
+    </div>
+    <div class="pods">
+      <div class="pod reveal">
+        <h3>הקול של הדור הצעיר - Episode 327</h3>
+        <iframe src="https://open.spotify.com/embed/episode/75lGIG9jBItOKhVzAQbxvg?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="pod reveal">
+        <h3>Creative podcast - interview</h3>
+        <iframe src="https://open.spotify.com/embed/episode/5DNiv0xStC8vIlPDqVvwVE?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>Let's create something <em>worth feeling.</em></h2>
+      <div class="conns">
+        <a href="https://www.linkedin.com/in/shir-tahelle-mor-b874b3226/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="mailto:shir.itzhakian@gmail.com">Email ↗</a>
+        <a href="tel:+972542321052">054-232-1052 ↗</a>
+      </div>
+      <div class="footer-info">
+        <span><b>Shir Tahelle Mor</b> · Creative Director</span>
+        <span>Herzl 6, Ramat Gan, IL · <b>shir.itzhakian@gmail.com</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="legal">© <span id="yr"></span> Shir Tahelle Mor. All rights reserved.</footer>
+
+<!-- ============ LIGHTBOX MODAL CONTENT (hidden, injected on click) ============ -->
+<div id="m01" class="modal-src" hidden>
+  <div class="lb-gallery">
+    <img src="https://static.wixstatic.com/media/4cf66f_a1a68f2428774061b769d828c752ecb3~mv2.jpg/v1/fill/w_1100,h_1467,al_c,q_90,enc_avif,quality_auto/4cf66f_a1a68f2428774061b769d828c752ecb3~mv2.jpg" alt="monday.com 2-sheet OOH">
+    <img src="https://static.wixstatic.com/media/4cf66f_28d7fc9d79434b30a5732df53027fc27~mv2.jpg/v1/fill/w_1300,h_867,al_c,q_90,enc_avif,quality_auto/4cf66f_28d7fc9d79434b30a5732df53027fc27~mv2.jpg" alt="monday.com NY subway brand train">
+    <img src="https://static.wixstatic.com/media/4cf66f_d523fd6b590a4951ba33c4b3ab77fd52~mv2.jpg/v1/fill/w_1100,h_1467,al_c,q_90,enc_avif,quality_auto/4cf66f_d523fd6b590a4951ba33c4b3ab77fd52~mv2.jpg" alt="monday.com 2-sheet OOH">
+  </div>
+</div>
+
+<div id="m02" class="modal-src" hidden>
+  <div class="lb-video">
+    <iframe src="https://drive.google.com/file/d/1oyQl0UzRaexR1zhChCc5MaSzTMV2H1tD/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<div id="m03" class="modal-src" hidden>
+  <div class="lb-video">
+    <iframe src="https://drive.google.com/file/d/1HCRykDue7NB2Ro3XMScl2mtceBfANrJN/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<div id="m04" class="modal-src" hidden>
+  <div class="lb-audio">
+    <div class="lb-audio-head"><b>Affirmations - Audio Ad</b><span>monday.com · 0:30</span></div>
+    <div class="wave"><i style="height:38%"></i><i style="height:62%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:74%"></i><i style="height:42%"></i><i style="height:88%"></i><i style="height:60%"></i><i style="height:96%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:34%"></i><i style="height:82%"></i><i style="height:58%"></i><i style="height:92%"></i><i style="height:46%"></i><i style="height:66%"></i><i style="height:40%"></i><i style="height:78%"></i><i style="height:52%"></i><i style="height:86%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:36%"></i></div>
+    <!-- Affirmations audio (Google Drive embed) -->
+    <iframe class="lb-drive-audio" src="https://drive.google.com/file/d/1hJoZu2R80nl1pChtx4FkEZuTZrJyQQRN/preview" allow="autoplay" loading="lazy"></iframe>
+  </div>
+</div>
+
+<div id="m05" class="modal-src" hidden>
+  <div class="lb-gallery">
+    <img src="https://static.wixstatic.com/media/4cf66f_2593e59c34ae412fb3945003bf9c489f~mv2.jpg/v1/fill/w_1000,h_1334,q_90,enc_avif,quality_auto/4cf66f_2593e59c34ae412fb3945003bf9c489f~mv2.jpg" alt="Tel Aviv University OOH">
+    <img src="https://static.wixstatic.com/media/4cf66f_2ca59fa40efd46cfb8d7223f0c68ba99~mv2.jpeg/v1/fill/w_1000,h_1334,q_90,enc_avif,quality_auto/4cf66f_2ca59fa40efd46cfb8d7223f0c68ba99~mv2.jpeg" alt="Tel Aviv University OOH">
+    <img src="https://static.wixstatic.com/media/4cf66f_e256617ac3884cddb7109795dd5b4dcf~mv2.jpeg/v1/fill/w_1000,h_1334,q_90,enc_avif,quality_auto/4cf66f_e256617ac3884cddb7109795dd5b4dcf~mv2.jpeg" alt="Tel Aviv University OOH">
+  </div>
+</div>
+
+<div id="m06" class="modal-src" hidden>
+  <div class="lb-single">
+    <img src="https://static.wixstatic.com/media/4cf66f_c97a07d4dfb04bfba4d98cb777582f5e~mv2.png/v1/crop/x_0,y_37,w_756,h_535/fill/w_1200,h_849,al_c,q_90,enc_avif,quality_auto/Screenshot%202025-05-21%20at%2011_57_13.png" alt="Hebrew University of Jerusalem print campaign">
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-backdrop" data-close></div>
+  <button class="lb-close" data-close aria-label="Close">×</button>
+  <div class="lb-dialog" role="dialog" aria-modal="true"><div class="lb-body"></div></div>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* scroll reveal */
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el)=>io.observe(el));
+
+/* lightbox */
+const lb = document.getElementById('lightbox');
+const lbBody = lb.querySelector('.lb-body');
+function openLb(id){
+  const src = document.getElementById(id);
+  if(!src) return;
+  lbBody.innerHTML = src.innerHTML;
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  lbBody.innerHTML='';            /* stops any playing video/audio */
+  document.body.style.overflow='';
+}
+document.querySelectorAll('[data-modal]').forEach(btn=>{
+  btn.addEventListener('click',()=>openLb(btn.dataset.modal));
+});
+lb.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeLb));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
+</script>
+</body>
+</html>
